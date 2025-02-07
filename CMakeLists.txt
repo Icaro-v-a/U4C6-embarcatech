@@ -42,7 +42,7 @@ project(U4C3 C CXX ASM)
 pico_sdk_init()
 
 # Add executable first
-add_executable(U4C3 U4C3.c)
+add_executable(U4C3 U4C3.c inc/ssd1306.c)
 
 # Then generate PIO header
 pico_generate_pio_header(U4C3 ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
@@ -65,6 +65,7 @@ target_link_libraries(U4C3
     pico_stdlib
     hardware_pio
     hardware_clocks
+    hardware_i2c
 )
 
 # Add extra outputs
